@@ -59,4 +59,10 @@ final class IndexController extends AbstractController
     {
         return $this->render('index/employee.html.twig');
     }
+
+    #[Route('/order', name: 'app_order')]
+    public function order(): Response
+    {
+        return $this->render('index/order.html.twig');
+    }
 }
