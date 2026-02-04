@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class IndexController extends AbstractController
 {
@@ -18,5 +19,44 @@ final class IndexController extends AbstractController
     public function login(): Response
     {
         return $this->render('index/login.html.twig');
+    }
+
+    #[Route('/create', name: 'app_create')]
+    public function create(): Response
+    {
+        return $this->render('index/create.html.twig');
+    }
+
+    #[Route('/menus', name: 'app_menus')]
+    public function menus(): Response
+    {
+        return $this->render('index/menus.html.twig');
+    }
+
+    #[Route('/menu-detail', name: 'app_menu_detail')]
+    public function menuDetail(): Response
+    {
+        return $this->render('index/menu_detail.html.twig');
+    }
+
+    #[Route('/user', name: 'app_user')]
+    #[IsGranted('ROLE_USER')]
+    public function user(): Response
+    {
+        return $this->render('index/user.html.twig');
+    }
+
+    #[Route('/admin', name: 'app_admin')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function admin(): Response
+    {
+        return $this->render('index/admin.html.twig');
+    }
+
+    #[Route('/employee', name: 'app_employee')]
+    #[IsGranted('ROLE_EMPLOYEE')]
+    public function employee(): Response
+    {
+        return $this->render('index/employee.html.twig');
     }
 }
