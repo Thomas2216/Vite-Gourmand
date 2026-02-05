@@ -3,7 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlatRepository;
-use Doctrine\DBAL\Types\Types;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PlatRepository::class)]
@@ -15,39 +16,50 @@ class Plat
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom_plat = null;
+    private ?string $nom = null;
 
-    #[ORM\Column(type: Types::BLOB, nullable: true)]
-    private mixed $photo = null;
+    #[ORM\Column(length: 255)]
+    private ?string $type = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $allergene = null;
+
+    /**
+     * @var Collection<int, Menu>
+     */
+    #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy: 'Plats')]
+    private Collection $menus;
+
+    public function __construct()
+    {
+        $this->menus = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNomPlat(): ?string
+    public function getNom(): ?string
     {
-        return $this->nom_plat;
+        return $this->nom;
     }
 
-    public function setNomPlat(string $nom_plat): static
+    public function setNom(string $nom): static
     {
-        $this->nom_plat = $nom_plat;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getPhoto(): mixed
+    public function getType(): ?string
     {
-        return $this->photo;
+        return $this->type;
     }
 
-    public function setPhoto(mixed $photo): static
+    public function setType(string $type): static
     {
-        $this->photo = $photo;
+        $this->type = $type;
 
         return $this;
     }
@@ -60,6 +72,33 @@ class Plat
     public function setAllergene(?string $allergene): static
     {
         $this->allergene = $allergene;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Menu>
+     */
+    public function getMenus(): Collection
+    {
+        return $this->menus;
+    }
+
+    public function addMenu(Menu $menu): static
+    {
+        if (!$this->menus->contains($menu)) {
+            $this->menus->add($menu);
+            $menu->addPlat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMenu(Menu $menu): static
+    {
+        if ($this->menus->removeElement($menu)) {
+            $menu->removePlat($this);
+        }
 
         return $this;
     }

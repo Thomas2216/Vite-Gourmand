@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -20,25 +22,40 @@ class User
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    private ?string $role = null;
+
+    #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $telephone = null;
+    private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
     private ?string $ville = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $pays = null;
+    private ?string $telephone = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $adresse = null;
+    /**
+     * @var Collection<int, commande>
+     */
+    #[ORM\ManyToMany(targetEntity: commande::class, inversedBy: 'users')]
+    private Collection $commande;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Role = null;
+    /**
+     * @var Collection<int, Avis>
+     */
+    #[ORM\OneToMany(targetEntity: Avis::class, mappedBy: 'user')]
+    private Collection $avis;
+
+    public function __construct()
+    {
+        $this->commande = new ArrayCollection();
+        $this->avis = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +86,18 @@ class User
         return $this;
     }
 
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): static
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
     public function getNom(): ?string
     {
         return $this->nom;
@@ -93,14 +122,14 @@ class User
         return $this;
     }
 
-    public function getTelephone(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->telephone;
+        return $this->adresse;
     }
 
-    public function setTelephone(string $telephone): static
+    public function setAdresse(string $adresse): static
     {
-        $this->telephone = $telephone;
+        $this->adresse = $adresse;
 
         return $this;
     }
@@ -117,38 +146,68 @@ class User
         return $this;
     }
 
-    public function getPays(): ?string
+    public function getTelephone(): ?string
     {
-        return $this->pays;
+        return $this->telephone;
     }
 
-    public function setPays(string $pays): static
+    public function setTelephone(string $telephone): static
     {
-        $this->pays = $pays;
+        $this->telephone = $telephone;
 
         return $this;
     }
 
-    public function getAdresse(): ?string
+    /**
+     * @return Collection<int, commande>
+     */
+    public function getCommande(): Collection
     {
-        return $this->adresse;
+        return $this->commande;
     }
 
-    public function setAdresse(string $adresse): static
+    public function addCommande(commande $commande): static
     {
-        $this->adresse = $adresse;
+        if (!$this->commande->contains($commande)) {
+            $this->commande->add($commande);
+        }
 
         return $this;
     }
 
-    public function getRole(): ?string
+    public function removeCommande(commande $commande): static
     {
-        return $this->Role;
+        $this->commande->removeElement($commande);
+
+        return $this;
     }
 
-    public function setRole(string $Role): static
+    /**
+     * @return Collection<int, Avis>
+     */
+    public function getAvis(): Collection
     {
-        $this->Role = $Role;
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): static
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis->add($avi);
+            $avi->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): static
+    {
+        if ($this->avis->removeElement($avi)) {
+            // set the owning side to null (unless already changed)
+            if ($avi->getUser() === $this) {
+                $avi->setUser(null);
+            }
+        }
 
         return $this;
     }

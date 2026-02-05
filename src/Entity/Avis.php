@@ -14,14 +14,14 @@ class Avis
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column]
     private ?int $note = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $commentaire = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $statut = null;
+    #[ORM\ManyToOne(inversedBy: 'avis')]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -33,7 +33,7 @@ class Avis
         return $this->note;
     }
 
-    public function setNote(?int $note): static
+    public function setNote(int $note): static
     {
         $this->note = $note;
 
@@ -52,14 +52,14 @@ class Avis
         return $this;
     }
 
-    public function getStatut(): ?string
+    public function getUser(): ?User
     {
-        return $this->statut;
+        return $this->user;
     }
 
-    public function setStatut(string $statut): static
+    public function setUser(?User $user): static
     {
-        $this->statut = $statut;
+        $this->user = $user;
 
         return $this;
     }
