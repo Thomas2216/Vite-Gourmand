@@ -40,9 +40,9 @@ class User
     private ?string $telephone = null;
 
     /**
-     * @var Collection<int, commande>
+     * @var Collection<int, Commande>
      */
-    #[ORM\ManyToMany(targetEntity: commande::class, inversedBy: 'users')]
+    #[ORM\ManyToMany(targetEntity: Commande::class, inversedBy: 'users')]
     private Collection $commande;
 
     /**
@@ -55,6 +55,7 @@ class User
     {
         $this->commande = new ArrayCollection();
         $this->avis = new ArrayCollection();
+        $this->role = 'ROLE_USER';
     }
 
     public function getId(): ?int

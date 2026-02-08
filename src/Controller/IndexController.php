@@ -47,11 +47,13 @@ final class IndexController extends AbstractController
     }
 
     #[Route('/admin', name: 'app_admin')]
+    /**
     #[IsGranted('ROLE_ADMIN')]
     public function admin(): Response
     {
         return $this->render('index/admin.html.twig');
     }
+     **/
 
     #[Route('/employee', name: 'app_employee')]
     #[IsGranted('ROLE_EMPLOYEE')]
