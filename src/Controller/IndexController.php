@@ -9,7 +9,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class IndexController extends AbstractController
 {
-    #[Route('/accueil', name: 'app_accueil')]
+    #[Route('/', name: 'app_accueil')]
     public function index(): Response
     {
         return $this->render('index/index.html.twig');

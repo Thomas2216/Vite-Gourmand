@@ -1,3 +1,61 @@
 body {
-    background-color: fuchsia;
+    background-color: #FFFFFF;
+    font-family: Tahoma,sans-serif;
 }
+
+/* Debut Header */
+
+header {
+    border-bottom: #9B7BC2 solid 5px ;
+}
+
+.navbar {
+    padding : 0px ;
+}
+
+.container-fluid {
+    background-color: #5B2D8B; !important;
+    color: #FFFFFF;
+    margin: 0px;
+}
+
+.nav-item {
+    color: #FFFFFF;
+    margin-right: 25px;
+}
+
+.nav-link {
+    color: #FFFFFF;
+    padding: 30px;
+    padding-top: 30px;
+    font-size: 30px;
+}
+
+/* Fin Header */
+
+.presentation {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-family: Tahoma;
+    font-size: 20px;
+    text-align: justify;
+    color: #3A3A3A;
+    border-bottom: #9B7BC2 solid 5px;
+    line-height: 35px;
+}
+
+.cards_presentation {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background-color: black;
+}
+
+.card {
+    margin: 25px;
+    background-color: #5B2D8B;
+    color: #FFFFFF;
+}
+
