@@ -33,6 +33,41 @@ header {
 
 /* Fin Header */
 
+/* Devut Footer */
+
+.footer {
+    background-color: #5B2D8B;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer p {
+    margin: 10px 0 0 0;
+}
+
+/* Fin Footer */
+
 .presentation {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -49,13 +84,56 @@ header {
 .cards_presentation {
     display: flex;
     justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
     padding: 15px;
     background-color: black;
+    border-bottom: #9B7BC2 solid 5px;
 }
 
 .card {
-    margin: 25px;
     background-color: #5B2D8B;
+    color: #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 300px;
+    max-width: 18rem;
+    margin: 25px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.card img {
+    max-height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.btn-card {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding-bottom: 15px;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+}
+
+.btn-card:hover {
+    background-color: #222222;
     color: #FFFFFF;
 }
+
+
 
