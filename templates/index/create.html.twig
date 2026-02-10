@@ -3,6 +3,12 @@
 {% block title %}Créer son profil{% endblock %}
 
 {% block body %}
-    <h1>Page de création de profil</h1>
+    <h1>Créez votre Profil</h1>
+
+    <div>
+        {{ form_start(form) }}
+        {{ form(form) }}
+        {{ form_end(form) }}
+    </div>
 
 {% endblock %}
