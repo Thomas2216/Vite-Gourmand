@@ -15,17 +15,21 @@ final class IndexController extends AbstractController
         return $this->render('index/index.html.twig');
     }
 
-    #[Route('/login', name: 'app_login')]
+    /** #[Route('/login', name: 'app_login')]
     public function login(): Response
     {
         return $this->render('index/login.html.twig');
     }
+     *
+     **/
 
-    #[Route('/create', name: 'app_create')]
+    /**  #[Route('/create', name: 'app_create')]
     public function create(): Response
     {
         return $this->render('index/create.html.twig');
     }
+
+    **/
 
     #[Route('/menus', name: 'app_menus')]
     public function menus(): Response
@@ -46,8 +50,8 @@ final class IndexController extends AbstractController
         return $this->render('index/user.html.twig');
     }
 
-    #[Route('/admin', name: 'app_admin')]
     /**
+    #[Route('/admin', name: 'app_admin')]
     #[IsGranted('ROLE_ADMIN')]
     public function admin(): Response
     {
