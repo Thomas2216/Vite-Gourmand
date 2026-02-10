@@ -43,6 +43,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-top: #9B7BC2 solid 5px ;
+
 }
 
 .footer a {
@@ -134,6 +136,182 @@ header {
     background-color: #222222;
     color: #FFFFFF;
 }
+
+/* Formulaire de connexion*/
+
+.connexion-form {
+    background: #f9f9f9;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.connexion-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.connexion-form label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.connexion-form input[type="email"],
+.connexion-form input[type="password"] {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.connexion-form input[type="email"]:focus,
+.connexion-form input[type="password"]:focus {
+    border-color: #6C63FF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+}
+
+.connexion-form button {
+    background: #6C63FF;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.connexion-form button:hover {
+    background: #574bde;
+}
+
+.alert {
+    background-color: #ffdddd;
+    color: #d8000c;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.not-yet {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 35px;
+    color: #333;
+}
+
+.not-yet a {
+    color: #6C63FF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.not-yet a:hover {
+    text-decoration: underline;
+}
+
+/* Fin Formulaire de Connexion */
+
+/* Formulaire de Création */
+
+.create-title{
+    text-align: center;
+    margin-top: 50px;
+}
+.creation-form {
+    background: #f9f9f9;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.creation-form h1,
+.creation-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.creation-form .form-row,
+.creation-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.creation-form label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.creation-form input,
+.creation-form select,
+.creation-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.creation-form input:focus,
+.creation-form select:focus,
+.creation-form textarea:focus {
+    border-color: #6C63FF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+}
+
+.creation-form button {
+    background: #6C63FF;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.creation-form button:hover {
+    background: #574bde;
+}
+
+.creation-form .form-errors,
+.creation-form .alert {
+    background-color: #ffdddd;
+    color: #d8000c;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Fin Formulaire de Création */
+
 
 
 
