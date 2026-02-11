@@ -32,7 +32,7 @@ class SecurityController extends AbstractController
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        if ($this->isGranted('ROLE_ADMIN' or 'ROLE_EMPLOYEE')) {
+        if ($this->isGranted(['ROLE_ADMIN', 'ROLE_EMPLOYEE'])) {
             return $this->redirectToRoute('app_admin');
         }
 
