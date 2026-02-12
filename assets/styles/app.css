@@ -313,5 +313,88 @@ header {
 /* Fin Formulaire de Création */
 
 
+/* Contact */
+
+/* Conteneur principal */
+.container-contact {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.text-contact {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Bouton */
+.button-contact {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e67e22;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #cf711f;
+}
+
+/* Infos complémentaires */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: #e67e22;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
 
 

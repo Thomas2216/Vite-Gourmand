@@ -59,16 +59,22 @@ final class IndexController extends AbstractController
     }
      **/
 
-    #[Route('/employee', name: 'app_employee')]
-    #[IsGranted('ROLE_EMPLOYEE')]
-    public function employee(): Response
-    {
-        return $this->render('index/employee.html.twig');
-    }
 
     #[Route('/order', name: 'app_order')]
     public function order(): Response
     {
         return $this->render('index/order.html.twig');
+    }
+
+    #[Route('/contact', name: 'app_contact')]
+    public function contact(): Response
+    {
+        return $this->render('index/contact.html.twig');
+    }
+
+    #[Route('/mentions-legales', name: 'app_mentions')]
+    public function mentions(): Response
+    {
+        return $this->render('index/mentions-legales.html.twig');
     }
 }
