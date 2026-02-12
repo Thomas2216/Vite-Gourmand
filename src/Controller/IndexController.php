@@ -44,7 +44,6 @@ final class IndexController extends AbstractController
     }
 
     #[Route('/user', name: 'app_user')]
-    #[IsGranted('ROLE_USER')]
     public function user(): Response
     {
         return $this->render('index/user.html.twig');

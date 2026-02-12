@@ -25,18 +25,14 @@ class SecurityController extends AbstractController
         $this->passwordHasher = $passwordHasher;
     }
 
-    #[Route(path: '/login', name: 'app_login')]
+    #[Route(path: '/login', name: 'app_login', methods: ['GET','POST'])]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         $error = $authenticationUtils->getLastAuthenticationError();
 
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        if ($this->isGranted(['ROLE_ADMIN', 'ROLE_EMPLOYEE'])) {
-            return $this->redirectToRoute('app_admin');
-        }
-
-        else  return $this->render('security/login.html.twig', [
+        return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
         ]);
