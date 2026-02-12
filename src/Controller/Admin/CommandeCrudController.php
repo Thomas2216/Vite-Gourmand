@@ -3,12 +3,13 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Commande;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use phpDocumentor\Reflection\Type;
 
 class CommandeCrudController extends AbstractCrudController
 {
@@ -28,5 +29,11 @@ class CommandeCrudController extends AbstractCrudController
             MoneyField::new('prix_total', 'Prix Total')->setCurrency('EUR'),
             TextField::new('statut', 'Statut')
         ];
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+                ->setPermission(Action::DELETE, 'ROLE_ADMIN');
     }
 }

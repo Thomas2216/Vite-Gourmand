@@ -7,17 +7,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
-use EasyCorp\Bundle\EasyAdminBundle\Dto\LocaleDto;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 
 use App\Entity\User;
 use App\Entity\Menu;
 use App\Entity\Commande;
 use App\Entity\Plat;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
-#[IsGranted('ROLE_ADMIN')]
-#[IsGranted('ROLE_EMPLOYEE')]
 class DashboardController extends AbstractDashboardController
 {
     public function index(): Response
@@ -30,9 +27,6 @@ class DashboardController extends AbstractDashboardController
         return Dashboard::new()
             ->setTitle('Vite Gourmand')
 
-            ->disableDarkMode()
-
-
             ->setLocales(['fr']);
     }
 
@@ -44,5 +38,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Commandes', 'fas fa-eur', Commande::class);
         yield MenuItem::linkToCrud('Plats', 'fas fa-cutlery', Plat::class);
         yield MenuItem::linkToRoute('Retour à Vite & Gourmand', 'fa fa-home', 'app_accueil');
+    }
+
+    public function configureAssets(): Assets
+    {
+        return Assets::new()->addCssFile('assets/styles/admin.css');
     }
 }

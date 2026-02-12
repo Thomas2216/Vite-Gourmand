@@ -24,6 +24,7 @@ security:
                 check_path: app_login
                 username_parameter: email
                 password_parameter: password
+                default_target_path :
             logout:
                 path: app_logout
                 target: app_user
@@ -36,7 +37,8 @@ security:
 
     # Note: Only the *first* matching rule is applied
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        -   path: ^/admin
+            roles: [ ROLE_ADMIN, ROLE_EMPLOYEE ]
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:

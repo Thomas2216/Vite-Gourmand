@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -26,6 +27,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('adresse', 'Adresse postale'),
             TextField::new('ville'),
             TelephoneField::new('telephone', 'Téléphone'),
+            ArrayField::new('roles', 'Role')->setPermission('ROLE_ADMIN'),
 
         ];
     }
