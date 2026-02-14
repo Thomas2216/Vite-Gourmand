@@ -24,6 +24,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_accueil') }}">Accueil</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_menus') }}">Menus</a>
                             </li>
@@ -31,10 +32,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path ('app_contact') }}">Contact</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                            </li>
                         </ul>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-                        </li>
                     </div>
                 </div>
             </nav>
@@ -43,12 +45,6 @@
         {% block body %}
         {% endblock %}
 
-        <footer>
-            <!-- Pied de page
-                -Horaires
-                -Mentions Légales
-                -CGV
-             -->
             <footer class="footer">
                 <div>
                     <img src="{{ asset('images/facebook-icon.png') }}" width="24">
@@ -70,7 +66,5 @@
 
                 <p>&copy; 2026 Vite & Gourmand. Tous droits réservés.</p>
             </footer>
-        </footer>
-
     </body>
 </html>
