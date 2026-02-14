@@ -52,7 +52,7 @@ class SecurityController extends AbstractController
     {
         // Crée un nouvel utilisateur
         $user = new User();
-        $user->setRole(['ROLE_USER']); // rôle par défaut
+        $user->setRoles(['ROLE_USER']); // rôle par défaut
 
         // Crée le formulaire
         $form = $this->createForm(UserType::class, $user);
