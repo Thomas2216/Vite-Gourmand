@@ -40,7 +40,7 @@ class Commande
     /**
      * @var Collection<int, User>
      */
-    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'commande')]
+    #[ORM\OneToMany(targetEntity: User::class, mappedBy: 'commande')]
     private Collection $users;
 
     /**

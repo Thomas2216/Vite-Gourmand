@@ -47,7 +47,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, Commande>
      */
-    #[ORM\ManyToMany(targetEntity: Commande::class, inversedBy: 'users')]
+    #[ORM\ManyToOne(targetEntity: Commande::class, inversedBy: 'users')]
     private Collection $commande;
 
     /**
